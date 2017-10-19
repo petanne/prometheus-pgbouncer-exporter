@@ -1,0 +1,11 @@
+[Unit]
+Description=Expose data from pgbouncer for collection by Prometheus
+BindsTo=pgbouncer.service
+After=pgbouncer.service
+
+[Service]
+User=postgres
+ExecStart=/usr/bin/prometheus-pgbouncer-exporter --pgbouncer-host=127.0.0.1 --pgbouncer-port=6432 --pgbouncer-user=stats --pgbouncer-password=xxxxxx
+
+[Install]
+WantedBy=pgbouncer.service

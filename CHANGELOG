@@ -1,0 +1,61 @@
+prometheus-pgbouncer-exporter (1.7)
+
+  * Include the port setting in the example configuration file
+  * Add note in the README about authentication
+
+ -- Christopher Baines <mail@cbaines.net>  Tue, 01 Mar 2016 08:45:45 +0000
+
+prometheus-pgbouncer-exporter (1.6)
+
+  * Make the pgbouncer host configurable
+  * Fix help strings
+
+ -- Christopher Baines <mail@cbaines.net>  Sat, 27 Feb 2016 17:55:20 +0000
+
+prometheus-pgbouncer-exporter (1.5)
+
+  * Make the port and host configurable
+  * Remove default config file path
+  * Remove debian/
+  * Separate changelog
+  * Use add --pgbouncer to port and user options
+
+ -- Christopher Baines <mail@cbaines.net>  Sat, 27 Feb 2016 13:37:52 +0000
+
+prometheus-pgbouncer-exporter (1.4)
+
+  * New release
+   - Add manpage
+
+ -- Christopher Baines <mail@cbaines.net>  Wed, 17 Feb 2016 11:46:16 +0000
+
+prometheus-pgbouncer-exporter (1.3)
+
+  * New release
+   - Readme improvements
+
+ -- Christopher Baines <mail@cbaines.net>  Mon, 15 Feb 2016 16:44:28 +0000
+
+prometheus-pgbouncer-exporter (1.2)
+
+  * New release
+    - Add extra documentation
+    - Add extra licence information
+    - Add --version argument
+    - Rename metrics, removing _count prefix
+
+ -- Christopher Baines <mail@cbaines.net>  Sat, 16 Jan 2016 20:47:22 +0000
+
+prometheus-pgbouncer-exporter (1.1)
+
+  * New release
+    - Improve the .service file
+    - Fix a metric name
+
+ -- Christopher Baines <mail@cbaines.net>  Tue, 05 Jan 2016 10:05:06 +0000
+
+prometheus-pgbouncer-exporter (1.0)
+
+  * Initial release
+
+ -- Christopher Baines <mail@cbaines.net>  Sun, 27 Dec 2015 14:57:54 +0000

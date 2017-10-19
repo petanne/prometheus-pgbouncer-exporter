@@ -1,0 +1,11 @@
+
+__pycache__
+*.pyc
+*.egg-info
+
+.pybuild
+debian/files
+debian/prometheus-pgbouncer-exporter
+*.log
+*.debhelper
+*.substvars
