@@ -163,6 +163,43 @@ class StatsCollector(NamedColumnCollector):
         return [row['database']]
 
 
+class Stats18Collector(NamedColumnCollector):
+    query_parameter = 'STATS'
+
+    labels = ['database']
+
+    metrics = {
+        'total_query_count': (
+            'requests_total',
+            "Total number of SQL requests pooled by pgbouncer",
+        ),
+        'total_received': (
+            'received_bytes_total',
+            "Total volume in bytes of network traffic received by pgbouncer",
+        ),
+        'total_sent': (
+            'sent_bytes_total',
+            "Total volume in bytes of network traffic sent by pgbouncer",
+        ),
+        'total_query_time': (
+            'query_microseconds_total',
+            "Total number of microseconds spent by pgbouncer when actively connected to PostgreSQL",
+        ),
+        'avg_query_count': (
+            'avg_query',
+            "Avg number of avg_query",
+        ),
+    }
+
+    def __init__(self, databases, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.databases = databases
+
+    def get_labels_for_row(self, row):
+        return [row['database']]
+
+
 class PoolsCollector(NamedColumnCollector):
     query_parameter = 'POOLS'
 

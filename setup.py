@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 AUTHOR = 'petanne'
 AUTHOR_EMAIL = 'lywxj1992@gmail.com'
 URL = 'petanne.com'
-VERSION = '1.7.99'
+VERSION = '1.8.1'
 
 setup(
     name="prometheus-pgbouncer-exporter",

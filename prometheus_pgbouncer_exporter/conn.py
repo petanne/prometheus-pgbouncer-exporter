@@ -13,7 +13,7 @@ class CONN(object):
     @staticmethod
     def reconnect():
         """重连机制"""
-        print('reconnect: ' + str(CONN.PGBOUNCER_USER) + ' ' + str(CONN.PGBOUNCER_HOST) + ' ' + str(
-            CONN.PGBOUNCER_PORT))
+        # print('reconnect: ' + str(CONN.PGBOUNCER_USER) + ' ' + str(CONN.PGBOUNCER_HOST) + ' '
+        #       + str(CONN.PGBOUNCER_PORT))
         CONN.CONNECTION = get_connection(CONN.PGBOUNCER_USER, CONN.PGBOUNCER_PASSWORD, CONN.PGBOUNCER_PORT,
                                          CONN.PGBOUNCER_HOST)

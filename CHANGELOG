@@ -1,3 +1,10 @@
+prometheus-pgbouncer-exporter (1.8)
+
+  * Include the port setting in the example configuration file
+  * Add note in the README about authentication
+
+ -- petanne <lywxj1992@gmail.com>  Fri, 12 Jan 2018 13:44:50 +0000
+
 prometheus-pgbouncer-exporter (1.7)
 
   * Include the port setting in the example configuration file

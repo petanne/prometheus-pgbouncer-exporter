@@ -11,7 +11,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import logging
 import psycopg2
+import os
+import re
 
 
 def get_connection(user, password, port, host):
@@ -48,3 +51,15 @@ def get_data_by_named_row(connection, key):
         cursor.execute('SHOW %s;' % key)
 
         return dict(cursor.fetchall())
+
+
+def get_pgbouncer_version():
+    version = '1.8'
+    s = os.popen('pgbouncer --version').read()
+    res = re.match('.*version (?P<v1>\d+)\.(?P<v2>\d+)\..*', s).groupdict()
+    try:
+        if int(res['v1']) <= 1 and int(res['v2']) <= 7:
+            version = '1.7'
+    except:
+        logging.warning('get bgbouncer version failed, default to 1.8')
+    return version

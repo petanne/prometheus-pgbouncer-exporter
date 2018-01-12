@@ -19,7 +19,7 @@
 # 开发日志：
 # 解决pgbouncer重启时，pgbouncer_exporter与pgbouncer的长连接失效且无法重新连接的问题
 # 增加全局变量 from .conn import CONN
-# 主要增加了CONN的reconnect()重连方法
+# 增加了CONN的reconnect()重连方法
 # 增加支持pgbouncer password参数
 
 import logging
@@ -30,7 +30,7 @@ from http.server import HTTPServer
 from prometheus_client.core import REGISTRY
 
 from . import __version__
-from .utils import get_connection
+from .utils import get_connection, get_pgbouncer_version
 from .exposition import create_request_handler
 from .collectors import StatsCollector, ListsCollector, PoolsCollector, \
     DatabasesCollector
@@ -133,9 +133,15 @@ def main():
     CONN.PGBOUNCER_PORT = options.pgbouncer_port
     CONN.PGBOUNCER_HOST = options.pgbouncer_host
 
-    REGISTRY.register(StatsCollector(
-        databases=options.database,
-    ))
+    version = get_pgbouncer_version()
+    if version == '1.8':
+        REGISTRY.register(StatsCollector(
+            databases=options.database,
+        ))
+    else:
+        REGISTRY.register(StatsCollector(
+            databases=options.database,
+        ))
 
     REGISTRY.register(PoolsCollector(
         databases=options.database,
