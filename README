@@ -1,3 +1,19 @@
+Extended from http://git.cbaines.net/prometheus-pgbouncer-exporter/ and version==1.7
+
+  Add re-connect once when pgbouncer connection is closed.
+  Add parameter pgbouncer-password for support pgbouncer password.
+
+# requirements
+ConfigArgParse
+prometheus_client
+psycopg2
+
+# Usage:
+python3 setup.py install
+/usr/bin/prometheus-pgbouncer-exporter --pgbouncer-host=127.0.0.1 --pgbouncer-port=6432 --pgbouncer-user=stats --pgbouncer-password=your_password
+
+=======================================================================================
+
 # PgBouncer exporter for Prometheus
 
 This is a simple exporter for PgBouncer that makes several metrics available to
