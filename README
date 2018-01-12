@@ -1,4 +1,6 @@
-Extended from http://git.cbaines.net/prometheus-pgbouncer-exporter/ and version==1.7
+Support pgbouncer 1.7.X and 1.8.X
+
+Extended from http://git.cbaines.net/prometheus-pgbouncer-exporter/
 
   Add re-connect once when pgbouncer connection is closed.
   Add parameter pgbouncer-password for support pgbouncer password.
