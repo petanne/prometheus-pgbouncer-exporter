@@ -32,7 +32,7 @@ from prometheus_client.core import REGISTRY
 from . import __version__
 from .utils import get_connection, get_pgbouncer_version
 from .exposition import create_request_handler
-from .collectors import StatsCollector, ListsCollector, PoolsCollector, \
+from .collectors import StatsCollector, Stats18Collector, ListsCollector, PoolsCollector, \
     DatabasesCollector
 
 from .conn import CONN
@@ -135,7 +135,7 @@ def main():
 
     version = get_pgbouncer_version()
     if version == '1.8':
-        REGISTRY.register(StatsCollector(
+        REGISTRY.register(Stats18Collector(
             databases=options.database,
         ))
     else:
