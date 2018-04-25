@@ -150,7 +150,7 @@ class StatsCollector(NamedColumnCollector):
         ),
         'avg_query': (
             'avg_query',
-            "Avg number of avg_query",
+            "Avg time of avg_query",
         ),
     }
 
@@ -186,8 +186,12 @@ class Stats18Collector(NamedColumnCollector):
             "Total number of microseconds spent by pgbouncer when actively connected to PostgreSQL",
         ),
         'avg_query_count': (
-            'avg_query',
+            'avg_query_count',
             "Avg number of avg_query",
+        ),
+        'avg_query_time': (
+            'avg_query',
+            "Avg time of avg_query",
         ),
     }
 
