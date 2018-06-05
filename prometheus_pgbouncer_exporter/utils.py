@@ -17,13 +17,17 @@ import os
 import re
 
 
-def get_connection(user, password, port, host):
+def get_connection(user, password, port, host, sslmode, sslcert, sslkey, sslrootcert):
     connection = psycopg2.connect(
         database='pgbouncer',
         user=user,
         password=password,
         port=port,
-        host=host
+        host=host,
+        sslmode=sslmode,
+        sslcert=sslcert,
+        sslkey=sslkey,
+        sslrootcert=sslrootcert
     )
 
     # pgbouncer does not support transactions (as it does not make sense to),

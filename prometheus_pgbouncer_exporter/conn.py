@@ -9,6 +9,10 @@ class CONN(object):
     PGBOUNCER_PASSWORD = None
     PGBOUNCER_PORT = None
     PGBOUNCER_HOST = None
+    PGBOUNCER_SSLMODE = None
+    PGBOUNCER_SSLCERT = None
+    PGBOUNCER_SSLKEY = None
+    PGBOUNCER_SSLROOTCERT = None
 
     @staticmethod
     def reconnect():
@@ -16,4 +20,5 @@ class CONN(object):
         # print('reconnect: ' + str(CONN.PGBOUNCER_USER) + ' ' + str(CONN.PGBOUNCER_HOST) + ' '
         #       + str(CONN.PGBOUNCER_PORT))
         CONN.CONNECTION = get_connection(CONN.PGBOUNCER_USER, CONN.PGBOUNCER_PASSWORD, CONN.PGBOUNCER_PORT,
-                                         CONN.PGBOUNCER_HOST)
+                                         CONN.PGBOUNCER_HOST, CONN.PGBOUNCER_SSLMODE, CONN.PGBOUNCER_SSLCERT,
+                                         CONN.PGBOUNCER_SSLKEY, CONN.PGBOUNCER_SSLROOTCERT)
