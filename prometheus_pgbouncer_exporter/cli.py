@@ -97,6 +97,31 @@ def main():
     )
 
     p.add(
+        '--pgbouncer-sslmode',
+        default='disable',
+        help="SSL Mode on which to connect to pgbouncer",
+        env_var='PGBOUNCER_SSLMODE',
+    )
+    p.add(
+        '--pgbouncer-sslcert',
+        default='/etc/pgbouncer/certificates/postgresql.cert',
+        help="Path to SSL Certificate on which to connect to pgbouncer",
+        env_var='PGBOUNCER_SSLCERT',
+    )
+    p.add(
+        '--pgbouncer-sslkey',
+        default='/etc/pgbouncer/certificates/postgresql.key',
+        help="Path to SSL Key on which to connect to pgbouncer",
+        env_var='PGBOUNCER_SSLKEY',
+    )
+    p.add(
+        '--pgbouncer-sslrootcert',
+        default='/etc/pgbouncer/certificates/root.cert',
+        help="Path to CA on which to connect to pgbouncer",
+        env_var='PGBOUNCER_SSLROOTCERT',
+    )
+
+    p.add(
         '--database',
         action='append',
         help="Databases to report metrics for, if this is not specified, all metrics will be reported",
@@ -125,6 +150,10 @@ def main():
         options.pgbouncer_password,
         options.pgbouncer_port,
         options.pgbouncer_host,
+        options.pgbouncer_sslmode,
+        options.pgbouncer_sslcert,
+        options.pgbouncer_sslkey,
+        options.pgbouncer_sslrootcert,
     )
     # global CONNECTION
     CONN.CONNECTION = connection
@@ -132,6 +161,10 @@ def main():
     CONN.PGBOUNCER_PASSWORD = options.pgbouncer_user
     CONN.PGBOUNCER_PORT = options.pgbouncer_port
     CONN.PGBOUNCER_HOST = options.pgbouncer_host
+    CONN.PGBOUNCER_SSLMODE = options.pgbouncer_sslmode
+    CONN.PGBOUNCER_SSLCERT = options.pgbouncer_sslcert
+    CONN.PGBOUNCER_SSLKEY = options.pgbouncer_sslkey
+    CONN.PGBOUNCER_SSLROOTCERT = options.pgbouncer_sslrootcert
 
     version = get_pgbouncer_version()
     if version == '1.8':
